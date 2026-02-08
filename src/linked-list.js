@@ -5,7 +5,7 @@ class Node {
   }
 }
 
-class LinkedList {
+export class LinkedList {
   #head;
   #tail;
   #length = 0;
@@ -20,5 +20,18 @@ class LinkedList {
 
   size() {
     return this.#length;
+  }
+
+  append(value) {
+    let node = new Node(value);
+    if (!this.#head) {
+      this.#head = node;
+      this.#tail = node;
+    }
+
+    this.#tail.nextNode = node;
+    this.#tail = node;
+
+    this.#length++;
   }
 }
