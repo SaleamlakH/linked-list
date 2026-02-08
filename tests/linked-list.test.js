@@ -111,4 +111,30 @@ describe('Linked list', () => {
 
     expect(list.toString()).toBe('( dog ) -> ( cat ) -> null');
   });
+
+  test('Insert new node at a given index', () => {
+    list.append('dog');
+    list.append('cat');
+
+    list.insertAt(1, 'parrot');
+    expect(list.toString()).toBe('( dog ) -> ( parrot ) -> ( cat ) -> null');
+  });
+
+  test('Insert multiple nodes at a given index', () => {
+    list.append('dog');
+    list.append('cat');
+
+    list.insertAt(1, 'parrot', 'hamster');
+    expect(list.toString()).toBe(
+      '( dog ) -> ( parrot ) -> ( hamster ) -> ( cat ) -> null',
+    );
+  });
+
+  test('Throw RangeError if insert index is out of bounds', () => {
+    list.append('dog');
+    list.append('cat');
+
+    // the function call must be wrap in a function
+    expect(() => list.insertAt(2, 'parrot')).toThrow(RangeError);
+  });
 });

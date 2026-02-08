@@ -105,4 +105,30 @@ export class LinkedList {
 
     return string;
   }
+
+  insertAt(index, ...values) {
+    if (index >= this.#length) {
+      throw new RangeError(`Index must be between 0 and ${this.#length}`);
+    }
+
+    let node = this.#head;
+    for (let i = 0; i < index - 1; i++) {
+      node = node.nextNode;
+    }
+
+    values.forEach((value) => {
+      let newNode = new Node(value);
+
+      if (index === 0) {
+        newNode.nextNode = this.#head;
+        this.#head = newNode;
+      } else {
+        newNode.nextNode = node.nextNode;
+        node.nextNode = newNode;
+      }
+
+      node = newNode;
+      this.#length++;
+    });
+  }
 }
