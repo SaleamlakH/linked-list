@@ -24,14 +24,11 @@ export class LinkedList {
 
   append(value) {
     let node = new Node(value);
-    if (!this.#head) {
-      this.#head = node;
-      this.#tail = node;
-    }
 
-    this.#tail.nextNode = node;
+    if (!this.#head) this.#head = node;
+    else this.#tail.nextNode = node;
+
     this.#tail = node;
-
     this.#length++;
   }
 
