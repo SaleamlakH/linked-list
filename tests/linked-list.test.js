@@ -63,4 +63,12 @@ describe('Linked list', () => {
     expect(list.head()).toBe('cat');
     expect(list.at(1)).toBe('dog');
   });
+
+  test("Remove the head node and return its value", () => {
+    list.append('dog');
+    list.append('cat');
+    
+    expect(list.pop()).toBe('dog');
+    expect(list.head()).toBe('cat');
+  })
 });
