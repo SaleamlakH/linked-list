@@ -35,6 +35,15 @@ export class LinkedList {
     this.#length++;
   }
 
+  prepend(value) {
+    let node = new Node(value);
+
+    node.nextNode = this.#head;
+    this.#head = node;
+
+    this.#length++;
+  }
+
   at(index) {
     if (!this.#head || index >= this.#length) {
       return undefined;

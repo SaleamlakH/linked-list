@@ -55,4 +55,12 @@ describe('Linked list', () => {
     expect(list.at(0)).toBe(undefined);
     expect(list.at(3)).toBe(undefined);
   });
+
+  test('Add a new node at the start', () => {
+    list.append('dog');
+    list.prepend('cat');
+
+    expect(list.head()).toBe('cat');
+    expect(list.at(1)).toBe('dog');
+  });
 });
