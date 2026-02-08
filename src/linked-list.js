@@ -65,4 +65,15 @@ export class LinkedList {
 
     return value;
   }
+
+  contains(value) {
+    let node = this.#head;
+    while (node) {
+      if (node.value === value) return true;
+
+      node = node.nextNode;
+    }
+
+    return false;
+  }
 }

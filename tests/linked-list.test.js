@@ -64,11 +64,28 @@ describe('Linked list', () => {
     expect(list.at(1)).toBe('dog');
   });
 
-  test("Remove the head node and return its value", () => {
+  test('Remove the head node and return its value', () => {
     list.append('dog');
     list.append('cat');
-    
+
     expect(list.pop()).toBe('dog');
     expect(list.head()).toBe('cat');
-  })
+  });
+
+  test('Return true if the value is in the list', () => {
+    list.append('dog');
+    list.append('cat');
+    list.append('parrot');
+    list.prepend('hamster');
+
+    expect(list.contains('cat')).toBe(true);
+    expect(list.contains('hamster')).toBe(true);
+  });
+
+  test('Return false if the value is not in the list', () => {
+    list.append('cat');
+    list.append('parrot');
+
+    expect(list.contains('dog')).toBe(false);
+  });
 });
