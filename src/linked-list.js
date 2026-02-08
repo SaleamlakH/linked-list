@@ -89,4 +89,20 @@ export class LinkedList {
 
     return -1;
   }
+
+  toString() {
+    let node = this.#head;
+    let string = '';
+
+    while (node) {
+      string += `( ${node.value} ) -> `;
+      if (node.nextNode === null) {
+        string += 'null';
+      }
+
+      node = node.nextNode;
+    }
+
+    return string;
+  }
 }

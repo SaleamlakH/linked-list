@@ -104,4 +104,11 @@ describe('Linked list', () => {
 
     expect(list.findIndex('hamster')).toBe(-1);
   });
+
+  test('Returns the list as a string', () => {
+    list.append('dog');
+    list.append('cat');
+
+    expect(list.toString()).toBe('( dog ) -> ( cat ) -> null');
+  });
 });
