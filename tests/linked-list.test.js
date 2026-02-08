@@ -88,4 +88,20 @@ describe('Linked list', () => {
 
     expect(list.contains('dog')).toBe(false);
   });
+
+  test('Return the index of a node containing a value', () => {
+    list.append('dog');
+    list.append('cat');
+    list.append('parrot');
+
+    expect(list.findIndex('cat')).toBe(1);
+  });
+
+  test('Return -1 if there is no node containing a value', () => {
+    list.append('dog');
+    list.append('cat');
+    list.append('parrot');
+
+    expect(list.findIndex('hamster')).toBe(-1);
+  });
 });
