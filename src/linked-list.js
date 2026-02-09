@@ -73,14 +73,7 @@ export class LinkedList {
   }
 
   contains(value) {
-    let node = this.#head;
-    while (node) {
-      if (node.value === value) return true;
-
-      node = node.nextNode;
-    }
-
-    return false;
+    return this.findIndex(value) >= 0;
   }
 
   findIndex(value) {
