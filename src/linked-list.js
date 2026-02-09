@@ -117,10 +117,10 @@ export class LinkedList {
       node = node.nextNode;
     }
 
-    values.forEach((value) => {
+    values.forEach((value, valueIndex) => {
       let newNode = new Node(value);
 
-      if (!this.#head.nextNode) {
+      if (index === 0 && valueIndex === 0) {
         newNode.nextNode = this.#head;
         this.#head = newNode;
       } else {

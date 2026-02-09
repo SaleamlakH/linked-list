@@ -160,9 +160,12 @@ describe('Linked list', () => {
 
   test('Insert multiple nodes at index 0', () => {
     list.append('dog');
+    list.append('hamster');
 
     list.insertAt(0, 'cat', 'parrot');
-    expect(list.toString()).toBe('( cat ) -> ( parrot ) -> ( dog ) -> null');
+    expect(list.toString()).toBe(
+      '( cat ) -> ( parrot ) -> ( dog ) -> ( hamster ) -> null',
+    );
   });
 
   test('Throw RangeError if insert index is out of bounds', () => {
