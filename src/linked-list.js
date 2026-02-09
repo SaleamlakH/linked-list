@@ -125,19 +125,13 @@ export class LinkedList {
       throw new RangeError(`Index must be between 0 and ${this.#length}`);
     }
 
+    // simply remove it with shift
+    if (index === 0) return this.shift();
+
+    // the node before the target node
     let node = this.#nodeAt(index - 1);
-
-    if (index === 0) {
-      this.#head = this.#head.nextNode;
-
-      // update tail if the list is empty
-      if (!this.#head) this.#tail = null;
-
-      this.#length--;
-      return node.value;
-    }
-
     let targetNode = node.nextNode;
+
     node.nextNode = targetNode.nextNode;
 
     // update the tail if it is the last node
