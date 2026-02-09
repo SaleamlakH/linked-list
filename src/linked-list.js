@@ -98,13 +98,10 @@ export class LinkedList {
 
     while (node) {
       string += `( ${node.value} ) -> `;
-      if (node.nextNode === null) {
-        string += 'null';
-      }
-
       node = node.nextNode;
     }
 
+    string += null;
     return string;
   }
 
