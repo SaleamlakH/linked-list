@@ -56,6 +56,10 @@ describe('Linked list', () => {
     expect(list.at(3)).toBe(undefined);
   });
 
+  test('Return undefined for negative index', () => {
+    expect(list.at(-1)).toBe(undefined);
+  });
+
   test('Prepend to empty list update tail', () => {
     list.prepend('cat');
 
@@ -80,7 +84,7 @@ describe('Linked list', () => {
 
   test('Remove from empty list return undefined', () => {
     expect(list.shift()).toBe(undefined);
-  })
+  });
 
   test('Return true if the value is in the list', () => {
     list.append('dog');

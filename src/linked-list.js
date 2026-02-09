@@ -45,7 +45,7 @@ export class LinkedList {
   }
 
   at(index) {
-    if (!this.#head || index >= this.#length) {
+    if (!this.#head || index >= this.#length || index < 0) {
       return undefined;
     }
 
