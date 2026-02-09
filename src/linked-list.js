@@ -38,6 +38,9 @@ export class LinkedList {
     node.nextNode = this.#head;
     this.#head = node;
 
+    // update the tail if the head  were null
+    if (!node.nextNode) this.#tail = node;
+
     this.#length++;
   }
 

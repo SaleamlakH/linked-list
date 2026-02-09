@@ -56,6 +56,12 @@ describe('Linked list', () => {
     expect(list.at(3)).toBe(undefined);
   });
 
+  test('Prepend to empty list update tail', () => {
+    list.prepend('cat');
+
+    expect(list.tail()).toBe('cat');
+  });
+
   test('Add a new node at the start', () => {
     list.append('dog');
     list.prepend('cat');
