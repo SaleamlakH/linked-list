@@ -74,7 +74,7 @@ describe('Linked list', () => {
     list.append('dog');
     list.append('cat');
 
-    expect(list.pop()).toBe('dog');
+    expect(list.shift()).toBe('dog');
     expect(list.head()).toBe('cat');
   });
 

@@ -57,7 +57,7 @@ export class LinkedList {
     return node.value;
   }
 
-  pop() {
+  shift() {
     let value = this.#head.value;
 
     this.#head = this.#head.nextNode;
