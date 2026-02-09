@@ -175,4 +175,50 @@ describe('Linked list', () => {
     // the function call must be wrap in a function
     expect(() => list.insertAt(2, 'parrot')).toThrow(RangeError);
   });
+
+  test('Remove a node at a given index and return its value', () => {
+    list.append('dog');
+    list.append('cat');
+    list.append('parrot');
+
+    expect(list.removeAt(1)).toBe('cat');
+  });
+
+  test('Remove a node at the end index update the tail', () => {
+    list.append('dog');
+    list.append('cat');
+    list.append('parrot');
+
+    expect(list.removeAt(2)).toBe('parrot');
+    expect(list.tail()).toBe('cat');
+  });
+
+  test('Remove a node at index 0', () => {
+    list.append('dog');
+    list.append('cat');
+    list.append('parrot');
+
+    expect(list.removeAt(0)).toBe('dog');
+  });
+
+  test('Remove at index 0 from a single node list', () => {
+    list.append('dog');
+
+    expect(list.removeAt(0)).toBe('dog');
+  });
+
+  test('Remove at index 0 update tail from a single node list', () => {
+    list.append('dog');
+    list.removeAt(0);
+
+    expect(list.tail()).toBe(undefined);
+  });
+
+  test('Throw RangeError if the index is out of bound', () => {
+    list.append('dog');
+    list.append('cat');
+
+    // the call must be wrapped in a function
+    expect(() => list.removeAt(2)).toThrow(RangeError);
+  });
 });

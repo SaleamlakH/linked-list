@@ -132,4 +132,35 @@ export class LinkedList {
       this.#length++;
     });
   }
+
+  removeAt(index) {
+    if (index < 0 || index >= this.#length) {
+      throw new RangeError(`Index must be between 0 and ${this.#length}`);
+    }
+
+    let node = this.#head;
+
+    for (let i = 0; i < index - 1; i++) {
+      node = node.nextNode;
+    }
+
+    if (index === 0) {
+      this.#head = this.#head.nextNode;
+
+      // update tail if the list is empty
+      if (!this.#head) this.#tail = null;
+
+      this.#length--;
+      return node.value;
+    }
+
+    let targetNode = node.nextNode;
+    node.nextNode = targetNode.nextNode;
+
+    // update the tail if it is the last node
+    if (!targetNode.nextNode) this.#tail = node;
+
+    this.#length--;
+    return targetNode.value;
+  }
 }
