@@ -58,10 +58,12 @@ export class LinkedList {
   }
 
   shift() {
+    if (!this.#head) return undefined;
+
     let value = this.#head.value;
 
     this.#head = this.#head.nextNode;
-    this.#length--;
+    this.#length--; 
 
     return value;
   }

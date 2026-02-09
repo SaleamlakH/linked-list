@@ -78,6 +78,10 @@ describe('Linked list', () => {
     expect(list.head()).toBe('cat');
   });
 
+  test('Remove from empty list return undefined', () => {
+    expect(list.shift()).toBe(undefined);
+  })
+
   test('Return true if the value is in the list', () => {
     list.append('dog');
     list.append('cat');
