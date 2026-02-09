@@ -50,6 +50,7 @@ export class LinkedList {
     }
 
     let node = this.#head;
+    // traverse to the node
     for (let i = 0; i < index; i++) {
       node = node.nextNode;
     }
@@ -65,6 +66,7 @@ export class LinkedList {
     this.#head = this.#head.nextNode;
     this.#length--;
 
+    // update tail if the list is empty
     if (!this.#head) this.#tail = null;
 
     return value;
@@ -113,10 +115,13 @@ export class LinkedList {
     }
 
     let node = this.#head;
+
+    // traverse through the list to the given index
     for (let i = 0; i < index - 1; i++) {
       node = node.nextNode;
     }
 
+    // inserting each values to the list
     values.forEach((value, valueIndex) => {
       let newNode = new Node(value);
 
@@ -140,6 +145,7 @@ export class LinkedList {
 
     let node = this.#head;
 
+    // traverse through the list to the given index
     for (let i = 0; i < index - 1; i++) {
       node = node.nextNode;
     }
