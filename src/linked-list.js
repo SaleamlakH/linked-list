@@ -63,7 +63,9 @@ export class LinkedList {
     let value = this.#head.value;
 
     this.#head = this.#head.nextNode;
-    this.#length--; 
+    this.#length--;
+
+    if (!this.#head) this.#tail = null;
 
     return value;
   }

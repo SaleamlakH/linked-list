@@ -82,6 +82,13 @@ describe('Linked list', () => {
     expect(list.head()).toBe('cat');
   });
 
+  test('Remove update tail for single element list', () => {
+    list.append('dog');
+    list.shift();
+
+    expect(list.tail()).toBe(undefined);
+  });
+
   test('Remove from empty list return undefined', () => {
     expect(list.shift()).toBe(undefined);
   });
