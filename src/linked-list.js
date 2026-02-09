@@ -49,12 +49,7 @@ export class LinkedList {
       return undefined;
     }
 
-    let node = this.#head;
-    // traverse to the node
-    for (let i = 0; i < index; i++) {
-      node = node.nextNode;
-    }
-
+    let node = this.#nodeAt(index);
     return node.value;
   }
 
@@ -98,7 +93,7 @@ export class LinkedList {
       node = node.nextNode;
     }
 
-    return string += null;
+    return (string += null);
   }
 
   insertAt(index, ...values) {
@@ -106,12 +101,7 @@ export class LinkedList {
       throw new RangeError(`Index must be between 0 and ${this.#length}`);
     }
 
-    let node = this.#head;
-
-    // traverse through the list to the given index
-    for (let i = 0; i < index - 1; i++) {
-      node = node.nextNode;
-    }
+    let node = this.#nodeAt(index - 1);
 
     // inserting each values to the list
     values.forEach((value, valueIndex) => {
@@ -135,12 +125,7 @@ export class LinkedList {
       throw new RangeError(`Index must be between 0 and ${this.#length}`);
     }
 
-    let node = this.#head;
-
-    // traverse through the list to the given index
-    for (let i = 0; i < index - 1; i++) {
-      node = node.nextNode;
-    }
+    let node = this.#nodeAt(index - 1);
 
     if (index === 0) {
       this.#head = this.#head.nextNode;
@@ -160,5 +145,14 @@ export class LinkedList {
 
     this.#length--;
     return targetNode.value;
+  }
+
+  #nodeAt(index) {
+    let node = this.#head;
+    for (let i = 0; i < index; i++) {
+      node = node.nextNode;
+    }
+
+    return node;
   }
 }
