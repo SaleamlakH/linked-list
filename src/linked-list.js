@@ -101,6 +101,7 @@ export class LinkedList {
       throw new RangeError(`Index must be between 0 and ${this.#length}`);
     }
 
+    // the node before the target node
     let node = this.#nodeAt(index - 1);
 
     // inserting each values to the list
