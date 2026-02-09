@@ -98,8 +98,7 @@ export class LinkedList {
       node = node.nextNode;
     }
 
-    string += null;
-    return string;
+    return string += null;
   }
 
   insertAt(index, ...values) {
