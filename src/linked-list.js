@@ -116,7 +116,7 @@ export class LinkedList {
     values.forEach((value) => {
       let newNode = new Node(value);
 
-      if (index === 0) {
+      if (!this.#head.nextNode) {
         newNode.nextNode = this.#head;
         this.#head = newNode;
       } else {
